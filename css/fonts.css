@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProThin_35490.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProThinItalic_35491.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProLight_35485.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProLightItalic_35486.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProRegular_35489.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProItalic_35484.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProMedium_35487.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProMediumItalic_35488.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProBold_35480.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProBoldItalic_35481.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProExtraBlack_35482.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Square Sans Pro';
+    src: url('../fonts/PFSquareSansProExtraBlackItalic_35483.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}

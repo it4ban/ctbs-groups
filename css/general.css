@@ -1,0 +1,104 @@
+body {
+    font-family: 'PF Square Sans Pro', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    position: relative;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100%;
+    color: #31343b;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-block-size: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/*general classes*/
+
+.accent-button {
+    display: inline-block;
+    background: #ff7e0d;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 8px 11px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+
+    &:active {
+        transform: translateY(1px) scale(0.98);
+        background: #d96400;
+    }
+}
+
+@media (hover: hover) {
+    .accent-button:hover {
+        background: #e96f05;
+        transform: translateY(-2px);
+    }
+}
+
+.accent-background {
+    width: 100%;
+    background: #fff;
+    box-shadow: var(--bg-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    border-radius: 15px;
+}
+
+.accent-header {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.25;
+    color: #31343b;
+}
+
+.choices {
+    margin-bottom: 0;
+}
+
+.choices__inner {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    background: #fafafa;
+    min-height: auto;
+}
+
+.choices.is-open .choices__inner {
+    border-radius: 10px 10px;
+    border-color: #ff7e0d;
+    box-shadow: 0 0 0 2px rgba(255, 126, 13, 0.15);
+    outline: none;
+}
+
+.choices__list--dropdown {
+    border-radius: 10px;
+    border: 1px solid #ff7e0d!important;
+    box-shadow: 0 0 0 2px rgba(255, 126, 13, 0.15);
+}
+
+.choices__list--single {
+    padding: 0;
+}
+
+.choices__placeholder {
+    opacity: .7;
+}
+
+.choices__item--selectable.is-highlighted {
+    background: rgba(255, 126, 13, 0.1);
+}

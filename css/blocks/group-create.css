@@ -1,0 +1,14 @@
+.group-create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+}
+
+.group-create__wrapper {
+    max-width: 840px;
+    padding: 3.5rem 1.5rem;
+    position: relative;
+}
+

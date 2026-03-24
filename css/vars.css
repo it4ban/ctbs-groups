@@ -1,0 +1,4 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #f5f7fb, #e9eef6);
+    --bg-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}

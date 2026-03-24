@@ -1,0 +1,84 @@
+.error-messages {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 10px;
+    z-index: 20;
+    max-height: 50vh; /* Максимум половина экрана */
+    overflow-y: auto;  /* Включаем вертикальный скролл при переполнении */
+    padding-right: 5px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    min-width: 520px;
+}
+
+.error-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.error-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.error-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 61, 0, 0.5);
+    border-radius: 3px;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 320px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff7e0d, #ff3d00);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(0) scale(0.95); /* стартовая позиция без выхода за контейнер */
+    transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    will-change: transform, opacity; /* ускоряет анимацию */
+}
+
+.error-message--show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.error-message--hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.error-message:hover {
+    transform: scale(1.03);
+}
+
+.error-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.7;
+
+    transition: opacity 0.2s ease;
+}
+
+.error-close:hover {
+    opacity: 1;
+}
+
+.error-field {
+    border: 1px solid #ff3d00 !important;
+    box-shadow: 0 0 0 2px rgba(255, 61, 0, 0.2);
+}

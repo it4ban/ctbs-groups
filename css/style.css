@@ -1,0 +1,11 @@
+@import "reset.css";
+@import "vars.css";
+@import "fonts.css";
+@import "general.css";
+
+/*BLOCKS*/
+@import "blocks/group-menu.css";
+@import "blocks/group-create.css";
+@import "blocks/accent-form.css";
+@import "blocks/error-container.css";
+@import "blocks/generators.css";

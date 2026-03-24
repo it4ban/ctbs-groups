@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Добавить группу</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<main class="group-create">
+			<div class="group-create__wrapper container accent-background">
+				<form id="group-create" class="accent-form">
+					<div class="accent-form__wrapper">
+						<h1 class="accent-header accent-form__header">Создать группу</h1>
+
+						<div class="accent-form__fields">
+							<div class="accent-form__field-wrapper">
+								<label for="group-number">Номер группы</label>
+								<input
+									id="group-number"
+									type="text"
+									name="number"
+									class="accent-form__field"
+									placeholder="Номер группы"
+								/>
+							</div>
+
+							<div class="accent-form__field-wrapper">
+								<label for="group-code">Код группы</label>
+								<input id="group-code" type="text" name="code" class="accent-form__field" placeholder="Код группы" />
+							</div>
+
+							<div class="accent-form__field-wrapper">
+								<label for="select-program">Программа</label>
+								<select id="select-program" name="program" class="accent-form__field accent-form__field--select">
+									<option>Группа 1</option>
+									<option>Группа 2</option>
+									<option>Группа 3</option>
+									<option>Группа 4</option>
+									<option>Группа 5</option>
+									<option>Группа 6</option>
+								</select>
+							</div>
+
+							<div class="accent-form__field-wrapper">
+								<label for="select-group">Статус</label>
+								<select id="select-group" name="status" class="accent-form__field accent-form__field--select">
+									<option>Группа открыта</option>
+									<option>Группа закрыта</option>
+									<option>Группа согласована</option>
+									<option>Расписание</option>
+									<option>Экзамен</option>
+								</select>
+							</div>
+
+							<div class="accent-form__field-wrapper">
+								<label for="date-start">Дата начала</label>
+								<input
+									id="date-start"
+									type="text"
+									name="date_create"
+									class="accent-form__field accent-form__field--date"
+									placeholder="дд.мм.гггг чч:мм:сс"
+								/>
+							</div>
+
+							<div class="accent-form__field-wrapper">
+								<label for="date-end">Дата конца</label>
+								<input
+									id="date-end"
+									type="text"
+									name="date_end"
+									class="accent-form__field accent-form__field--date"
+									placeholder="дд.мм.гггг чч:мм:сс"
+								/>
+							</div>
+						</div>
+
+						<div class="accent-modal accent-modal--teacher">
+							<div class="accent-modal__wrapper accent-background">
+								<button class="accent-modal__close" type="button">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+										<path
+											d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+										></path>
+									</svg>
+								</button>
+
+								<h2 class="accent-header">Добавить преподавателя</h2>
+
+								<div class="accent-modal__content">
+									<div class="accent-modal__field-wrapper">
+										<label for="teacher-name">ФИО</label>
+										<input
+											id="teacher-name"
+											type="text"
+											name="full_name"
+											class="accent-modal__field"
+											placeholder="ФИО"
+										/>
+									</div>
+
+									<div class="accent-modal__field-wrapper email-generator">
+										<label for="teacher-email">Email</label>
+										<div class="email-generator__wrapper">
+											<input
+												id="teacher-email"
+												type="text"
+												name="email"
+												class="accent-modal__field"
+												placeholder="Email"
+											/>
+											<button class="email-generator__button" title="Сгенерировать email" type="button">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width="24"
+													height="24"
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="#000"
+													stroke-width="2"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+												>
+													<path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+												</svg>
+											</button>
+										</div>
+									</div>
+
+									<div class="accent-modal__field-wrapper password-generator">
+										<label for="teacher-password">Пароль</label>
+										<div class="password-generator__wrapper">
+											<input
+												id="teacher-password"
+												type="password"
+												name="password"
+												class="accent-modal__field"
+												placeholder="Пароль"
+											/>
+
+											<button class="toggle-password" title="Показать пароль" type="button">
+												<svg
+													class="eye-open"
+													xmlns="http://www.w3.org/2000/svg"
+													width="24"
+													height="24"
+													fill="none"
+													stroke="#000"
+													stroke-width="2"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													style="display: none"
+												>
+													<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+													<circle cx="12" cy="12" r="3" />
+												</svg>
+												<svg
+													class="eye-closed"
+													xmlns="http://www.w3.org/2000/svg"
+													width="24"
+													height="24"
+													fill="none"
+													stroke="#000"
+													stroke-width="2"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+												>
+													<path d="M17.94 17.94L6.06 6.06M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+												</svg>
+											</button>
+
+											<button class="password-generator__button" title="Сгенерировать пароль" type="button">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width="24"
+													height="24"
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="#000"
+													stroke-width="2"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+												>
+													<path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+												</svg>
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="accent-modal__buttons">
+									<button class="accent-button accent-form__generate-data" type="button">Сгенерировать данные</button>
+									<button class="accent-button accent-form__submit-modal">Сохранить</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="accent-form__buttons">
+							<button class="accent-button accent-button--open accent-form__add-teacher" type="button">
+								Добавить преподавателя
+							</button>
+							<button type="submit" class="accent-button accent-form__submit-form">Сохранить</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="error-messages"></div>
+		</main>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/choices.js@11.1.0/public/assets/scripts/choices.min.js"></script>
+		<script src="js/libs/inputmask.min.js"></script>
+		<script type="module" src="js/scripts.js"></script>
+	</body>
+</html>
