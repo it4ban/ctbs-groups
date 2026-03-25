@@ -10,6 +10,7 @@ export class GroupForm extends Form {
 	constructor(
 		selectorElement,
 		groupFormValidators = {},
+		groupModalValidators = {},
 		modalSettings = null,
 		selectOptions = {},
 		timeMasksOptions = null,
@@ -17,6 +18,7 @@ export class GroupForm extends Form {
 		super(selectorElement);
 
 		this.groupFormValidators = groupFormValidators;
+		this.groupModalValidators = groupModalValidators;
 
 		if (selectOptions.length > 0) {
 			this.#initSelect(selectOptions);
@@ -72,7 +74,7 @@ export class GroupForm extends Form {
 
 			if (!buttonEl || !modalEl) return;
 
-			const modalInstance = new GroupModal(modal, this.groupFormValidators, this.errorInstance);
+			const modalInstance = new GroupModal(modal, this.groupModalValidators, this.errorInstance);
 
 			this.#modalInstances.set(modal, modalInstance);
 

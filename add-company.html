@@ -1,10 +1,473 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Компании и слушатели</title>
+		<link rel="stylesheet" href="css/style.css" />
 
-</body>
+		<style>
+			body {
+				font-family: Arial;
+				padding: 20px;
+			}
+
+			.companies__controls {
+				display: flex;
+				gap: 10px;
+				margin-bottom: 20px;
+			}
+
+			.companies__table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+			.companies__table th,
+			.companies__table td {
+				border: 1px solid #ddd;
+				padding: 8px;
+			}
+
+			.companies__students {
+				background: #f9f9f9;
+			}
+
+			.modal {
+				position: fixed;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.5);
+			}
+			.modal--hidden {
+				display: none;
+			}
+
+			.modal__content {
+				background: #fff;
+				padding: 20px;
+				margin: 50px auto;
+				width: 700px;
+			}
+
+			.modal__table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 10px;
+			}
+			.modal__table td,
+			.modal__table th {
+				border: 1px solid #ddd;
+				padding: 5px;
+			}
+
+			.tabs {
+				display: flex;
+				gap: 10px;
+				margin-bottom: 10px;
+			}
+			.tabs__btn {
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+			.tabs__btn--active {
+				background: #007bff;
+				color: #fff;
+			}
+
+			.tabs__content {
+				display: none;
+			}
+			.tabs__content--active {
+				display: block;
+			}
+
+			.pagination button {
+				margin: 3px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<main class="company-create">
+			<div class="company-create__wrapper container">
+				<div class="accent-table">
+					<div class="accent-table__wrapper">
+						<div class="accent-filter"></div>
+
+						<table id="company-table" class="accent-table__table">
+							<thead>
+								<tr>
+									<th>Нзвание компании</th>
+								</tr>
+								<tr>
+									<th>ИНН</th>
+								</tr>
+								<tr>
+									<th>Телефон</th>
+								</tr>
+								<tr>
+									<th>Вид деятельности</th>
+								</tr>
+								<tr>
+									<th>Фактический адрес</th>
+								</tr>
+								<tr>
+									<th>Юридический адрес</th>
+								</tr>
+								<tr>
+									<th>Операции</th>
+								</tr>
+							</thead>
+
+							<tbody class="accent-table__body"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<div class="companies">
+			<div class="companies__controls">
+				<input placeholder="Название" id="filterName" />
+				<input placeholder="ИНН" id="filterInn" />
+				<button id="applyFilter">Фильтр</button>
+				<button id="addCompanyBtn">+ Компания</button>
+			</div>
+
+			<table class="companies__table">
+				<thead>
+					<tr>
+						<th>Название</th>
+						<th>ИНН</th>
+						<th>Телефон</th>
+						<th>Деятельность</th>
+						<th>Факт</th>
+						<th>Юр</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="companiesBody">
+					<tr class="companies-table__row"></tr>
+					<tr class="companies-table__content"></tr>
+				</tbody>
+			</table>
+
+			<div id="pagination" class="pagination"></div>
+		</div>
+
+		<!-- ================= МОДАЛКА КОМПАНИИ ================= -->
+		<div class="modal modal--hidden" id="companyModal">
+			<div class="modal__content">
+				<h3>Компания</h3>
+
+				<input placeholder="Название" id="companyName" /><br /><br />
+				<input placeholder="ИНН" id="companyInn" /><br /><br />
+
+				<div class="tabs">
+					<button class="tabs__btn tabs__btn--active" data-tab="company-select">Выбрать</button>
+					<button class="tabs__btn" data-tab="company-create">Создать</button>
+				</div>
+
+				<!-- select -->
+				<div class="tabs__content tabs__content--active" data-content="company-select">
+					<input placeholder="Фильтр по ФИО" id="companyStudentFilter" />
+
+					<table class="modal__table">
+						<thead>
+							<tr>
+								<th></th>
+								<th>ФИО</th>
+								<th>Email</th>
+								<th>Телефон</th>
+							</tr>
+						</thead>
+						<tbody id="companyStudentsTable"></tbody>
+					</table>
+				</div>
+
+				<!-- create -->
+				<div class="tabs__content" data-content="company-create">
+					<input placeholder="ФИО" id="companyNewStudentName" /><br /><br />
+					<input placeholder="Email" id="companyNewStudentEmail" /><br /><br />
+					<input placeholder="Телефон" id="companyNewStudentPhone" /><br /><br />
+					<button id="companyCreateStudent">Создать слушателя</button>
+				</div>
+
+				<br />
+				<button id="saveCompany">Сохранить компанию</button>
+			</div>
+		</div>
+
+		<!-- ================= МОДАЛКА СЛУШАТЕЛЕЙ ================= -->
+		<div class="modal modal--hidden" id="studentManageModal">
+			<div class="modal__content">
+				<div class="tabs">
+					<button class="tabs__btn tabs__btn--active" data-tab="select">Выбрать</button>
+					<button class="tabs__btn" data-tab="create">Создать</button>
+				</div>
+
+				<div class="tabs__content tabs__content--active" data-content="select">
+					<input placeholder="Фильтр по ФИО" id="studentFilter" />
+
+					<table class="modal__table">
+						<thead>
+							<tr>
+								<th></th>
+								<th>ФИО</th>
+								<th>Email</th>
+								<th>Телефон</th>
+							</tr>
+						</thead>
+						<tbody id="studentsTable"></tbody>
+					</table>
+
+					<button id="attachStudents">Добавить</button>
+				</div>
+
+				<div class="tabs__content" data-content="create">
+					<input placeholder="ФИО" id="newStudentName" /><br /><br />
+					<input placeholder="Email" id="newStudentEmail" /><br /><br />
+					<input placeholder="Телефон" id="newStudentPhone" /><br /><br />
+					<button id="createAndAttachStudent">Создать и добавить</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			const state = {
+				companies: [],
+				students: [],
+				page: 1,
+				perPage: 5,
+				filter: { name: '', inn: '' },
+
+				studentUI: {
+					selected: new Set(),
+					currentCompanyId: null,
+				},
+
+				companyUI: {
+					selected: new Set(),
+					created: [],
+				},
+			};
+
+			// mock
+			state.companies = Array.from({ length: 10 }, (_, i) => ({
+				id: i + 1,
+				name: 'Компания ' + (i + 1),
+				inn: '12345' + i,
+				phone: '123',
+				activity: 'IT',
+				fact: 'Адрес',
+				legal: 'Адрес',
+				students: [],
+			}));
+
+			state.students = [
+				{ id: 1, name: 'Иван Иванов', email: 'a@mail.ru', phone: '111' },
+				{ id: 2, name: 'Петр Петров', email: 'b@mail.ru', phone: '222' },
+			];
+
+			// ===== render companies =====
+			function render() {
+				const body = document.getElementById('companiesBody');
+				body.innerHTML = '';
+
+				let data = state.companies.filter(
+					(c) => c.name.toLowerCase().includes(state.filter.name.toLowerCase()) && c.inn.includes(state.filter.inn),
+				);
+
+				const start = (state.page - 1) * state.perPage;
+				const paginated = data.slice(start, start + state.perPage);
+
+				paginated.forEach((c) => {
+					const tr = document.createElement('tr');
+
+					tr.innerHTML = `
+      <td>${c.name}</td>
+      <td>${c.inn}</td>
+      <td>${c.phone}</td>
+      <td>${c.activity}</td>
+      <td>${c.fact}</td>
+      <td>${c.legal}</td>
+      <td><button class="add-student" data-id="${c.id}">+</button></td>
+    `;
+
+					tr.onclick = () => toggleStudents(c, tr);
+					body.appendChild(tr);
+				});
+			}
+
+			// раскрытие
+			function toggleStudents(c, row) {
+				if (row.nextSibling?.classList?.contains('companies__students')) {
+					row.nextSibling.remove();
+					return;
+				}
+
+				const tr = document.createElement('tr');
+				tr.className = 'companies__students';
+
+				tr.innerHTML = `
+    <td colspan="7">
+      ${c.students.map((s) => `<div>${s.name}</div>`).join('')}
+    </td>
+  `;
+
+				row.after(tr);
+			}
+
+			// ===== фильтр =====
+			applyFilter.onclick = () => {
+				state.filter.name = filterName.value;
+				state.filter.inn = filterInn.value;
+				render();
+			};
+
+			// ===== модалки =====
+			function toggleModal(id, show) {
+				document.getElementById(id).classList.toggle('modal--hidden', !show);
+			}
+
+			// ===== компания =====
+			addCompanyBtn.onclick = () => {
+				state.companyUI.selected.clear();
+				state.companyUI.created = [];
+				renderCompanyStudents();
+				toggleModal('companyModal', true);
+			};
+
+			function renderCompanyStudents() {
+				companyStudentsTable.innerHTML = state.students
+					.map(
+						(s) => `
+    <tr>
+      <td><input type="checkbox" value="${s.id}"></td>
+      <td>${s.name}</td>
+      <td>${s.email}</td>
+      <td>${s.phone}</td>
+    </tr>
+  `,
+					)
+					.join('');
+			}
+
+			companyStudentsTable.onchange = (e) => {
+				if (e.target.type === 'checkbox') {
+					const id = +e.target.value;
+					e.target.checked ? state.companyUI.selected.add(id) : state.companyUI.selected.delete(id);
+				}
+			};
+
+			companyCreateStudent.onclick = () => {
+				const s = {
+					id: Date.now(),
+					name: companyNewStudentName.value,
+					email: companyNewStudentEmail.value,
+					phone: companyNewStudentPhone.value,
+				};
+
+				state.students.push(s);
+				state.companyUI.created.push(s);
+			};
+
+			saveCompany.onclick = () => {
+				const newCompany = {
+					id: Date.now(),
+					name: companyName.value,
+					inn: companyInn.value,
+					phone: '',
+					activity: '',
+					fact: '',
+					legal: '',
+					students: [],
+				};
+
+				state.companyUI.selected.forEach((id) => {
+					const s = state.students.find((s) => s.id === id);
+					if (s) newCompany.students.push(s);
+				});
+
+				state.companyUI.created.forEach((s) => {
+					newCompany.students.push(s);
+				});
+
+				state.companies.push(newCompany);
+				toggleModal('companyModal', false);
+				render();
+			};
+
+			// ===== слушатели =====
+			document.addEventListener('click', (e) => {
+				if (e.target.classList.contains('add-student')) {
+					state.studentUI.currentCompanyId = +e.target.dataset.id;
+					renderStudents();
+					toggleModal('studentManageModal', true);
+				}
+			});
+
+			function renderStudents() {
+				studentsTable.innerHTML = state.students
+					.map(
+						(s) => `
+    <tr>
+      <td><input type="checkbox" value="${s.id}"></td>
+      <td>${s.name}</td>
+      <td>${s.email}</td>
+      <td>${s.phone}</td>
+    </tr>
+  `,
+					)
+					.join('');
+			}
+
+			studentsTable.onchange = (e) => {
+				if (e.target.type === 'checkbox') {
+					const id = +e.target.value;
+					e.target.checked ? state.studentUI.selected.add(id) : state.studentUI.selected.delete(id);
+				}
+			};
+
+			attachStudents.onclick = () => {
+				const c = state.companies.find((c) => c.id === state.studentUI.currentCompanyId);
+
+				state.studentUI.selected.forEach((id) => {
+					const s = state.students.find((s) => s.id === id);
+					if (!c.students.find((x) => x.id === id)) c.students.push(s);
+				});
+
+				toggleModal('studentManageModal', false);
+				render();
+			};
+
+			createAndAttachStudent.onclick = () => {
+				const s = {
+					id: Date.now(),
+					name: newStudentName.value,
+					email: newStudentEmail.value,
+					phone: newStudentPhone.value,
+				};
+
+				state.students.push(s);
+
+				const c = state.companies.find((c) => c.id === state.studentUI.currentCompanyId);
+				c.students.push(s);
+
+				toggleModal('studentManageModal', false);
+				render();
+			};
+
+			// ===== tabs =====
+			document.querySelectorAll('.tabs__btn').forEach((btn) => {
+				btn.onclick = () => {
+					document.querySelectorAll('.tabs__btn').forEach((b) => b.classList.remove('tabs__btn--active'));
+					document.querySelectorAll('.tabs__content').forEach((c) => c.classList.remove('tabs__content--active'));
+
+					btn.classList.add('tabs__btn--active');
+					document.querySelector(`[data-content="${btn.dataset.tab}"]`).classList.add('tabs__content--active');
+				};
+			});
+
+			render();
+		</script>
+	</body>
 </html>
