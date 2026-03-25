@@ -8,7 +8,14 @@ export const generateEmail = (selector, length = 8) => {
 
 	const email = `${username}@elc.ctbs.ru`;
 
-	const input = document.querySelector(selector);
+	let input = null;
+
+	if (typeof selector === 'string') {
+		input = document.querySelector(selector);
+	} else if (selector instanceof HTMLElement) {
+		input = selector;
+	}
+
 	if (input) {
 		input.value = email;
 	} else {

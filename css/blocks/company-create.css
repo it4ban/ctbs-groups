@@ -168,7 +168,7 @@
     opacity: 0;
     transition:
             max-height 0.35s ease,
-            opacity 0.25s ease;
+            opacity 0.35s ease;
 }
 
 .accent-table__content.accent-table__content--active .accent-table__content-inner {
@@ -215,6 +215,15 @@
     }
 }
 
+
+.accent-tabs__button {
+    background: #979797;
+    &.accent-tabs__button--active {
+        background: #ff7e0d;
+    }
+}
+
+
 .pagination {
     background: #fff;
     box-shadow: var(--bg-shadow);
@@ -232,4 +241,27 @@
 .pagination__item {
     padding: .5rem 1rem;
     font-size: 15px;
+}
+
+.accent-tabs__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.accent-tabs__content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    display: none;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.accent-tabs__content--active {
+    display: block;
+    opacity: 1;
+}
+
+.create-listener__generator {
+    flex-direction: column;
 }

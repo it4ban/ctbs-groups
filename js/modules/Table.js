@@ -22,6 +22,9 @@ export class Table {
 
 		requestAnimationFrame(() => {
 			const height = inner.scrollHeight;
+			const duration = height / 900;
+
+			inner.style.transition = `max-height ${duration}s ease`;
 			inner.style.maxHeight = height + 'px';
 		});
 	}

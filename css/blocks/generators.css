@@ -2,6 +2,7 @@
 .password-generator {
     display: flex;
     gap: 0.5rem;
+    width: 100%;
 
     input {
         flex: 1;
@@ -10,10 +11,6 @@
     svg {
         fill: #fff;
         transition: transform 0.3s ease;
-    }
-
-    &:active {
-        transform: scale(0.95);
     }
 
     button {

@@ -6,7 +6,14 @@ export const generatePassword = (selector, length = 10) => {
 		password += chars.charAt(Math.floor(Math.random() * chars.length));
 	}
 
-	const input = document.querySelector(selector);
+	let input = null;
+
+	if (typeof selector === 'string') {
+		input = document.querySelector(selector);
+	} else if (selector instanceof HTMLElement) {
+		input = selector;
+	}
+
 	if (input) {
 		input.value = password;
 	} else {

@@ -102,3 +102,20 @@ body {
 .choices__item--selectable.is-highlighted {
     background: rgba(255, 126, 13, 0.1);
 }
+
+.accent-field {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: #fafafa;
+
+    &:focus {
+        border-color: #ff7e0d;
+        background: #fff;
+        box-shadow: 0 0 0 2px rgba(255, 126, 13, 0.15);
+        outline: none;
+    }
+}
