@@ -4,470 +4,396 @@
 		<meta charset="UTF-8" />
 		<title>Компании и слушатели</title>
 		<link rel="stylesheet" href="css/style.css" />
-
-		<style>
-			body {
-				font-family: Arial;
-				padding: 20px;
-			}
-
-			.companies__controls {
-				display: flex;
-				gap: 10px;
-				margin-bottom: 20px;
-			}
-
-			.companies__table {
-				width: 100%;
-				border-collapse: collapse;
-			}
-			.companies__table th,
-			.companies__table td {
-				border: 1px solid #ddd;
-				padding: 8px;
-			}
-
-			.companies__students {
-				background: #f9f9f9;
-			}
-
-			.modal {
-				position: fixed;
-				inset: 0;
-				background: rgba(0, 0, 0, 0.5);
-			}
-			.modal--hidden {
-				display: none;
-			}
-
-			.modal__content {
-				background: #fff;
-				padding: 20px;
-				margin: 50px auto;
-				width: 700px;
-			}
-
-			.modal__table {
-				width: 100%;
-				border-collapse: collapse;
-				margin-top: 10px;
-			}
-			.modal__table td,
-			.modal__table th {
-				border: 1px solid #ddd;
-				padding: 5px;
-			}
-
-			.tabs {
-				display: flex;
-				gap: 10px;
-				margin-bottom: 10px;
-			}
-			.tabs__btn {
-				padding: 5px 10px;
-				cursor: pointer;
-			}
-			.tabs__btn--active {
-				background: #007bff;
-				color: #fff;
-			}
-
-			.tabs__content {
-				display: none;
-			}
-			.tabs__content--active {
-				display: block;
-			}
-
-			.pagination button {
-				margin: 3px;
-			}
-		</style>
 	</head>
 
 	<body>
 		<main class="company-create">
 			<div class="company-create__wrapper container">
-				<div class="accent-table">
+				<div id="company-table" class="accent-table">
 					<div class="accent-table__wrapper">
-						<div class="accent-filter"></div>
+						<h1 class="accent-header accent-table__header">Создать компанию</h1>
 
-						<table id="company-table" class="accent-table__table">
+						<div class="accent-table__top">
+							<form class="accent-filter" id="company-filter">
+								<div class="accent-filter__wrapper">
+									<div class="accent-filter__items">
+										<div class="accent-filter__item">
+											<input
+												type="text"
+												name="company-name"
+												class="accent-filter__input"
+												placeholder="Название компании"
+											/>
+										</div>
+										<div class="accent-filter__item">
+											<input type="text" name="inn" class="accent-filter__input" placeholder="ИНН компании" />
+										</div>
+									</div>
+
+									<div class="accent-filter__buttons">
+										<button class="accent-filter__submit accent-button">Применить</button>
+										<button class="accent-filter__reset accent-button">Сбросить</button>
+
+										<button id="add-company" class="add-company accent-button" type="button">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="24"
+												height="24"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="#fff"
+												stroke-width="2"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											>
+												<circle cx="12" cy="12" r="10"></circle>
+												<line x1="12" y1="8" x2="12" y2="16"></line>
+												<line x1="8" y1="12" x2="16" y2="12"></line>
+											</svg>
+											Добавить компанию
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<table class="accent-table__table">
 							<thead>
 								<tr>
 									<th>Нзвание компании</th>
-								</tr>
-								<tr>
 									<th>ИНН</th>
-								</tr>
-								<tr>
 									<th>Телефон</th>
-								</tr>
-								<tr>
 									<th>Вид деятельности</th>
-								</tr>
-								<tr>
 									<th>Фактический адрес</th>
-								</tr>
-								<tr>
 									<th>Юридический адрес</th>
-								</tr>
-								<tr>
 									<th>Операции</th>
 								</tr>
 							</thead>
 
-							<tbody class="accent-table__body"></tbody>
+							<tbody class="accent-table__body">
+								<tr class="accent-table__row" data-row="0">
+									<td>Компания 1</td>
+									<td>12345</td>
+									<td>123</td>
+									<td>IT</td>
+									<td>Адрес факт</td>
+									<td>Адрес юр</td>
+									<td class="accent-table__actions">
+										<button class="add-listener accent-button" data-id="0">Добавить слушателя</button>
+									</td>
+								</tr>
+								<tr class="accent-table__content" data-row="0">
+									<td colspan="7">
+										<div class="accent-table__content-inner">
+											<ul class="employee-list">
+												<div class="employee-list__wrapper">
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+												</div>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr class="accent-table__row" data-row="1">
+									<td>Компания 1</td>
+									<td>12345</td>
+									<td>123</td>
+									<td>IT</td>
+									<td>Адрес факт</td>
+									<td>Адрес юр</td>
+									<td class="accent-table__actions">
+										<button class="add-listener accent-button" data-id="1">Добавить слушателя</button>
+									</td>
+								</tr>
+								<tr class="accent-table__content" data-row="1">
+									<td colspan="7">
+										<div class="accent-table__content-inner">
+											<ul class="employee-list">
+												<div class="employee-list__wrapper">
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+													<li class="employee-list__item">
+														<div class="employee-list__item-wrapper">
+															<p class="employee-list__item-text"><strong>ФИО: </strong> Иванов Иван Иванович</p>
+															<p class="employee-list__item-text"><strong>Телефон: </strong> +73213213123</p>
+															<p class="employee-list__item-text"><strong>Email: </strong> test@test.ru</p>
+														</div>
+													</li>
+												</div>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
 						</table>
+
+						<div class="pagination">
+							<div class="pagination__wrapper">
+								<a href="#" class="pagination__item accent-button">1</a>
+								<a href="#" class="pagination__item accent-button">2</a>
+								<a href="#" class="pagination__item accent-button">3</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<form id="add-listener" class="accent-modal">
+				<div class="accent-modal__wrapper accent-background">
+					<button class="accent-modal__close" type="button">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path
+								d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+							></path>
+						</svg>
+					</button>
+
+					<h2 class="accent-header">Добавить преподавателя</h2>
+
+					<div class="accent-modal__content">
+						<div class="accent-modal__field-wrapper">
+							<label for="teacher-name">ФИО</label>
+							<input id="teacher-name" type="text" name="full_name" class="accent-modal__field" placeholder="ФИО" />
+						</div>
+
+						<div class="accent-modal__field-wrapper email-generator">
+							<label for="teacher-email">Email</label>
+							<div class="email-generator__wrapper">
+								<input id="teacher-email" type="text" name="email" class="accent-modal__field" placeholder="Email" />
+								<button class="email-generator__button" title="Сгенерировать email" type="button">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="#000"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+									</svg>
+								</button>
+							</div>
+						</div>
+
+						<div class="accent-modal__field-wrapper password-generator">
+							<label for="teacher-password">Пароль</label>
+							<div class="password-generator__wrapper">
+								<input
+									id="teacher-password"
+									type="password"
+									name="password"
+									class="accent-modal__field"
+									placeholder="Пароль"
+								/>
+
+								<button class="toggle-password" title="Показать пароль" type="button">
+									<svg
+										class="eye-open"
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										fill="none"
+										stroke="#000"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										style="display: none"
+									>
+										<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+										<circle cx="12" cy="12" r="3" />
+									</svg>
+									<svg
+										class="eye-closed"
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										fill="none"
+										stroke="#000"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path d="M17.94 17.94L6.06 6.06M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+									</svg>
+								</button>
+
+								<button class="password-generator__button" title="Сгенерировать пароль" type="button">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="#000"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="accent-modal__buttons">
+						<button class="accent-button accent-form__generate-data" type="button">Сгенерировать данные</button>
+						<button class="accent-button accent-form__submit-modal">Сохранить</button>
+					</div>
+				</div>
+			</form>
+
+			<div class="error-messages"></div>
 		</main>
 
-		<div class="companies">
-			<div class="companies__controls">
-				<input placeholder="Название" id="filterName" />
-				<input placeholder="ИНН" id="filterInn" />
-				<button id="applyFilter">Фильтр</button>
-				<button id="addCompanyBtn">+ Компания</button>
-			</div>
-
-			<table class="companies__table">
-				<thead>
-					<tr>
-						<th>Название</th>
-						<th>ИНН</th>
-						<th>Телефон</th>
-						<th>Деятельность</th>
-						<th>Факт</th>
-						<th>Юр</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody id="companiesBody">
-					<tr class="companies-table__row"></tr>
-					<tr class="companies-table__content"></tr>
-				</tbody>
-			</table>
-
-			<div id="pagination" class="pagination"></div>
-		</div>
-
-		<!-- ================= МОДАЛКА КОМПАНИИ ================= -->
-		<div class="modal modal--hidden" id="companyModal">
-			<div class="modal__content">
-				<h3>Компания</h3>
-
-				<input placeholder="Название" id="companyName" /><br /><br />
-				<input placeholder="ИНН" id="companyInn" /><br /><br />
-
-				<div class="tabs">
-					<button class="tabs__btn tabs__btn--active" data-tab="company-select">Выбрать</button>
-					<button class="tabs__btn" data-tab="company-create">Создать</button>
-				</div>
-
-				<!-- select -->
-				<div class="tabs__content tabs__content--active" data-content="company-select">
-					<input placeholder="Фильтр по ФИО" id="companyStudentFilter" />
-
-					<table class="modal__table">
-						<thead>
-							<tr>
-								<th></th>
-								<th>ФИО</th>
-								<th>Email</th>
-								<th>Телефон</th>
-							</tr>
-						</thead>
-						<tbody id="companyStudentsTable"></tbody>
-					</table>
-				</div>
-
-				<!-- create -->
-				<div class="tabs__content" data-content="company-create">
-					<input placeholder="ФИО" id="companyNewStudentName" /><br /><br />
-					<input placeholder="Email" id="companyNewStudentEmail" /><br /><br />
-					<input placeholder="Телефон" id="companyNewStudentPhone" /><br /><br />
-					<button id="companyCreateStudent">Создать слушателя</button>
-				</div>
-
-				<br />
-				<button id="saveCompany">Сохранить компанию</button>
-			</div>
-		</div>
-
-		<!-- ================= МОДАЛКА СЛУШАТЕЛЕЙ ================= -->
-		<div class="modal modal--hidden" id="studentManageModal">
-			<div class="modal__content">
-				<div class="tabs">
-					<button class="tabs__btn tabs__btn--active" data-tab="select">Выбрать</button>
-					<button class="tabs__btn" data-tab="create">Создать</button>
-				</div>
-
-				<div class="tabs__content tabs__content--active" data-content="select">
-					<input placeholder="Фильтр по ФИО" id="studentFilter" />
-
-					<table class="modal__table">
-						<thead>
-							<tr>
-								<th></th>
-								<th>ФИО</th>
-								<th>Email</th>
-								<th>Телефон</th>
-							</tr>
-						</thead>
-						<tbody id="studentsTable"></tbody>
-					</table>
-
-					<button id="attachStudents">Добавить</button>
-				</div>
-
-				<div class="tabs__content" data-content="create">
-					<input placeholder="ФИО" id="newStudentName" /><br /><br />
-					<input placeholder="Email" id="newStudentEmail" /><br /><br />
-					<input placeholder="Телефон" id="newStudentPhone" /><br /><br />
-					<button id="createAndAttachStudent">Создать и добавить</button>
-				</div>
-			</div>
-		</div>
-
-		<script>
-			const state = {
-				companies: [],
-				students: [],
-				page: 1,
-				perPage: 5,
-				filter: { name: '', inn: '' },
-
-				studentUI: {
-					selected: new Set(),
-					currentCompanyId: null,
-				},
-
-				companyUI: {
-					selected: new Set(),
-					created: [],
-				},
-			};
-
-			// mock
-			state.companies = Array.from({ length: 10 }, (_, i) => ({
-				id: i + 1,
-				name: 'Компания ' + (i + 1),
-				inn: '12345' + i,
-				phone: '123',
-				activity: 'IT',
-				fact: 'Адрес',
-				legal: 'Адрес',
-				students: [],
-			}));
-
-			state.students = [
-				{ id: 1, name: 'Иван Иванов', email: 'a@mail.ru', phone: '111' },
-				{ id: 2, name: 'Петр Петров', email: 'b@mail.ru', phone: '222' },
-			];
-
-			// ===== render companies =====
-			function render() {
-				const body = document.getElementById('companiesBody');
-				body.innerHTML = '';
-
-				let data = state.companies.filter(
-					(c) => c.name.toLowerCase().includes(state.filter.name.toLowerCase()) && c.inn.includes(state.filter.inn),
-				);
-
-				const start = (state.page - 1) * state.perPage;
-				const paginated = data.slice(start, start + state.perPage);
-
-				paginated.forEach((c) => {
-					const tr = document.createElement('tr');
-
-					tr.innerHTML = `
-      <td>${c.name}</td>
-      <td>${c.inn}</td>
-      <td>${c.phone}</td>
-      <td>${c.activity}</td>
-      <td>${c.fact}</td>
-      <td>${c.legal}</td>
-      <td><button class="add-student" data-id="${c.id}">+</button></td>
-    `;
-
-					tr.onclick = () => toggleStudents(c, tr);
-					body.appendChild(tr);
-				});
-			}
-
-			// раскрытие
-			function toggleStudents(c, row) {
-				if (row.nextSibling?.classList?.contains('companies__students')) {
-					row.nextSibling.remove();
-					return;
-				}
-
-				const tr = document.createElement('tr');
-				tr.className = 'companies__students';
-
-				tr.innerHTML = `
-    <td colspan="7">
-      ${c.students.map((s) => `<div>${s.name}</div>`).join('')}
-    </td>
-  `;
-
-				row.after(tr);
-			}
-
-			// ===== фильтр =====
-			applyFilter.onclick = () => {
-				state.filter.name = filterName.value;
-				state.filter.inn = filterInn.value;
-				render();
-			};
-
-			// ===== модалки =====
-			function toggleModal(id, show) {
-				document.getElementById(id).classList.toggle('modal--hidden', !show);
-			}
-
-			// ===== компания =====
-			addCompanyBtn.onclick = () => {
-				state.companyUI.selected.clear();
-				state.companyUI.created = [];
-				renderCompanyStudents();
-				toggleModal('companyModal', true);
-			};
-
-			function renderCompanyStudents() {
-				companyStudentsTable.innerHTML = state.students
-					.map(
-						(s) => `
-    <tr>
-      <td><input type="checkbox" value="${s.id}"></td>
-      <td>${s.name}</td>
-      <td>${s.email}</td>
-      <td>${s.phone}</td>
-    </tr>
-  `,
-					)
-					.join('');
-			}
-
-			companyStudentsTable.onchange = (e) => {
-				if (e.target.type === 'checkbox') {
-					const id = +e.target.value;
-					e.target.checked ? state.companyUI.selected.add(id) : state.companyUI.selected.delete(id);
-				}
-			};
-
-			companyCreateStudent.onclick = () => {
-				const s = {
-					id: Date.now(),
-					name: companyNewStudentName.value,
-					email: companyNewStudentEmail.value,
-					phone: companyNewStudentPhone.value,
-				};
-
-				state.students.push(s);
-				state.companyUI.created.push(s);
-			};
-
-			saveCompany.onclick = () => {
-				const newCompany = {
-					id: Date.now(),
-					name: companyName.value,
-					inn: companyInn.value,
-					phone: '',
-					activity: '',
-					fact: '',
-					legal: '',
-					students: [],
-				};
-
-				state.companyUI.selected.forEach((id) => {
-					const s = state.students.find((s) => s.id === id);
-					if (s) newCompany.students.push(s);
-				});
-
-				state.companyUI.created.forEach((s) => {
-					newCompany.students.push(s);
-				});
-
-				state.companies.push(newCompany);
-				toggleModal('companyModal', false);
-				render();
-			};
-
-			// ===== слушатели =====
-			document.addEventListener('click', (e) => {
-				if (e.target.classList.contains('add-student')) {
-					state.studentUI.currentCompanyId = +e.target.dataset.id;
-					renderStudents();
-					toggleModal('studentManageModal', true);
-				}
-			});
-
-			function renderStudents() {
-				studentsTable.innerHTML = state.students
-					.map(
-						(s) => `
-    <tr>
-      <td><input type="checkbox" value="${s.id}"></td>
-      <td>${s.name}</td>
-      <td>${s.email}</td>
-      <td>${s.phone}</td>
-    </tr>
-  `,
-					)
-					.join('');
-			}
-
-			studentsTable.onchange = (e) => {
-				if (e.target.type === 'checkbox') {
-					const id = +e.target.value;
-					e.target.checked ? state.studentUI.selected.add(id) : state.studentUI.selected.delete(id);
-				}
-			};
-
-			attachStudents.onclick = () => {
-				const c = state.companies.find((c) => c.id === state.studentUI.currentCompanyId);
-
-				state.studentUI.selected.forEach((id) => {
-					const s = state.students.find((s) => s.id === id);
-					if (!c.students.find((x) => x.id === id)) c.students.push(s);
-				});
-
-				toggleModal('studentManageModal', false);
-				render();
-			};
-
-			createAndAttachStudent.onclick = () => {
-				const s = {
-					id: Date.now(),
-					name: newStudentName.value,
-					email: newStudentEmail.value,
-					phone: newStudentPhone.value,
-				};
-
-				state.students.push(s);
-
-				const c = state.companies.find((c) => c.id === state.studentUI.currentCompanyId);
-				c.students.push(s);
-
-				toggleModal('studentManageModal', false);
-				render();
-			};
-
-			// ===== tabs =====
-			document.querySelectorAll('.tabs__btn').forEach((btn) => {
-				btn.onclick = () => {
-					document.querySelectorAll('.tabs__btn').forEach((b) => b.classList.remove('tabs__btn--active'));
-					document.querySelectorAll('.tabs__content').forEach((c) => c.classList.remove('tabs__content--active'));
-
-					btn.classList.add('tabs__btn--active');
-					document.querySelector(`[data-content="${btn.dataset.tab}"]`).classList.add('tabs__content--active');
-				};
-			});
-
-			render();
-		</script>
+		<script src="js/company.js" type="module"></script>
 	</body>
 </html>

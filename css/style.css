@@ -5,7 +5,11 @@
 
 /*BLOCKS*/
 @import "blocks/group-menu.css";
-@import "blocks/group-create.css";
 @import "blocks/accent-form.css";
 @import "blocks/error-container.css";
 @import "blocks/generators.css";
+
+/*GROUP-CREATE*/
+@import "blocks/group-create.css";
+/*COMPANY-CREATE*/
+@import "blocks/company-create.css";
