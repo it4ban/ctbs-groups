@@ -1,6 +1,5 @@
 import { Error } from './Error.js';
 import { Select } from './Select.js';
-import { Modal } from './Modal.js';
 
 export class Form {
 	constructor(formSelector) {
@@ -19,6 +18,7 @@ export class Form {
 		const isValid = this.validateData(rules);
 
 		if (isValid) {
+			this.errorInstance.renderErrors(this.form, this.errorContainer);
 			console.log('ok');
 		} else {
 			console.log(this.errorInstance.getErrors());

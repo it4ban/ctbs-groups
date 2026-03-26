@@ -3,6 +3,21 @@
 	flex-direction: column;
 }
 
+.accent-modal-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.4);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.25s ease;
+	z-index: 9;
+}
+
+.accent-modal-overlay.accent-modal-overlay--active {
+	opacity: 1;
+	pointer-events: auto;
+}
+
 .accent-modal {
 	position: absolute;
 	top: 50%;
@@ -10,7 +25,7 @@
 	width: 50%;
 	opacity: 0;
 	transform: translate(-50%, -40%) scale(0.95);
-	pointer-events: none; /* блокируем клики когда закрыта */
+	pointer-events: none;
 	z-index: 0;
 
 	transition:
@@ -20,7 +35,7 @@
 	&.accent-modal--active {
 		opacity: 1;
 		transform: translate(-50%, -50%) scale(1);
-		pointer-events: auto; /* клики разрешены при открытой модалке */
+		pointer-events: auto;
 		z-index: 10;
 	}
 }

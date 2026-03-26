@@ -1,31 +1,32 @@
 .email-generator,
 .password-generator {
-    display: flex;
-    gap: 0.5rem;
-    width: 100%;
+	display: flex;
+	gap: 0.5rem;
+	width: 100%;
 
-    input {
-        flex: 1;
-    }
+	input {
+		flex: 1;
+	}
 
-    svg {
-        fill: #fff;
-        transition: transform 0.3s ease;
-    }
+	svg {
+		fill: #fff;
+		transition: transform 0.3s ease;
+	}
 
-    button {
-        white-space: nowrap;
+	button {
+		white-space: nowrap;
 
-        &:hover {
-            svg {
-                transform: rotate(180deg);
-            }
-        }
-    }
+		&:hover {
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
 }
 
-.email-generator__wrapper, .password-generator__wrapper {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+.email-generator__wrapper,
+.password-generator__wrapper {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }

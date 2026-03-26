@@ -21,6 +21,7 @@ export class ListenerSelectForm extends Form {
 				language: {
 					search: '',
 					searchPlaceholder: 'Поиск...',
+					zeroRecords: 'Ничего не найдено',
 				},
 			});
 		}

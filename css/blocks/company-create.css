@@ -71,3 +71,7 @@
 .create-listener__generator {
 	flex-direction: column;
 }
+
+.create-company__generator {
+	flex-direction: column;
+}

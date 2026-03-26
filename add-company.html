@@ -306,347 +306,349 @@
 				</div>
 			</div>
 
-			<div id="listener-modal" class="accent-modal">
-				<div class="accent-modal__wrapper accent-background">
-					<button class="accent-modal__close" type="button">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-							<path
-								d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
-							></path>
-						</svg>
-					</button>
+			<div class="accent-modal-overlay">
+				<div id="listener-modal" class="accent-modal">
+					<div class="accent-modal__wrapper accent-background">
+						<button class="accent-modal__close" type="button">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+								<path
+									d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+								></path>
+							</svg>
+						</button>
 
-					<h2 class="accent-header">Добавить cлушателя</h2>
+						<h2 class="accent-header">Добавить cлушателя</h2>
 
-					<div class="accent-modal__content">
-						<div id="listener-tabs" class="accent-tabs">
-							<div class="accent-tabs__wrapper">
-								<div class="accent-tabs__top">
-									<button
-										class="accent-tabs__button accent-tabs__button--active accent-button"
-										data-tab="create-listener"
-									>
-										Cоздать слушателя
-									</button>
-									<button class="accent-tabs__button accent-button" data-tab="select-listener">
-										Выбрать слушателя
-									</button>
-								</div>
+						<div class="accent-modal__content">
+							<div id="listener-tabs" class="accent-tabs">
+								<div class="accent-tabs__wrapper">
+									<div class="accent-tabs__top">
+										<button
+											class="accent-tabs__button accent-tabs__button--active accent-button"
+											data-tab="create-listener"
+										>
+											Cоздать слушателя
+										</button>
+										<button class="accent-tabs__button accent-button" data-tab="select-listener">
+											Выбрать слушателя
+										</button>
+									</div>
 
-								<div class="accent-tabs__contents">
-									<form
-										id="create-listener"
-										class="create-listener accent-form accent-tabs__content accent-tabs__content--active"
-										data-tab="create-listener"
-									>
-										<div class="accent-form__wrapper">
-											<div class="accent-form__fields">
-												<div class="accent-form__field-wrapper">
-													<label for="group-number">ФИО</label>
-													<input id="group-number" type="text" name="number" class="accent-field" placeholder="ФИО" />
-												</div>
+									<div class="accent-tabs__contents">
+										<form
+											id="create-listener"
+											class="create-listener accent-form accent-tabs__content accent-tabs__content--active"
+											data-tab="create-listener"
+										>
+											<div class="accent-form__wrapper">
+												<div class="accent-form__fields">
+													<div class="accent-form__field-wrapper">
+														<label for="group-number">ФИО</label>
+														<input id="group-number" type="text" name="number" class="accent-field" placeholder="ФИО" />
+													</div>
 
-												<div class="email-generator create-listener__generator">
-													<label for="listener-email-table">Email</label>
-													<div class="email-generator__wrapper">
-														<input
-															id="listener-email-table"
-															type="text"
-															name="email"
-															class="accent-field"
-															placeholder="Email"
-														/>
+													<div class="email-generator create-listener__generator">
+														<label for="listener-email-table">Email</label>
+														<div class="email-generator__wrapper">
+															<input
+																id="listener-email-table"
+																type="text"
+																name="email"
+																class="accent-field"
+																placeholder="Email"
+															/>
 
-														<button class="email-generator__button" title="Сгенерировать email" type="button">
-															<svg
-																xmlns="http://www.w3.org/2000/svg"
-																width="24"
-																height="24"
-																viewBox="0 0 24 24"
-																fill="none"
-																stroke="#000"
-																stroke-width="2"
-																stroke-linecap="round"
-																stroke-linejoin="round"
-															>
-																<path
-																	d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"
-																/>
-															</svg>
-														</button>
+															<button class="email-generator__button" title="Сгенерировать email" type="button">
+																<svg
+																	xmlns="http://www.w3.org/2000/svg"
+																	width="24"
+																	height="24"
+																	viewBox="0 0 24 24"
+																	fill="none"
+																	stroke="#000"
+																	stroke-width="2"
+																	stroke-linecap="round"
+																	stroke-linejoin="round"
+																>
+																	<path
+																		d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"
+																	/>
+																</svg>
+															</button>
+														</div>
+													</div>
+
+													<div class="password-generator create-listener__generator">
+														<label for="listener-password-table">Пароль</label>
+														<div class="password-generator__wrapper">
+															<input
+																id="listener-password-table"
+																type="password"
+																name="password"
+																class="accent-field"
+																placeholder="Пароль"
+															/>
+
+															<button class="toggle-password" title="Показать пароль" type="button">
+																<svg
+																	class="eye-open"
+																	xmlns="http://www.w3.org/2000/svg"
+																	width="24"
+																	height="24"
+																	fill="none"
+																	stroke="#000"
+																	stroke-width="2"
+																	stroke-linecap="round"
+																	stroke-linejoin="round"
+																	style="display: none"
+																>
+																	<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+																	<circle cx="12" cy="12" r="3" />
+																</svg>
+																<svg
+																	class="eye-closed"
+																	xmlns="http://www.w3.org/2000/svg"
+																	width="24"
+																	height="24"
+																	fill="none"
+																	stroke="#000"
+																	stroke-width="2"
+																	stroke-linecap="round"
+																	stroke-linejoin="round"
+																>
+																	<path d="M17.94 17.94L6.06 6.06M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+																</svg>
+															</button>
+
+															<button class="password-generator__button" title="Сгенерировать пароль" type="button">
+																<svg
+																	xmlns="http://www.w3.org/2000/svg"
+																	width="24"
+																	height="24"
+																	viewBox="0 0 24 24"
+																	fill="none"
+																	stroke="#000"
+																	stroke-width="2"
+																	stroke-linecap="round"
+																	stroke-linejoin="round"
+																>
+																	<path
+																		d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"
+																	/>
+																</svg>
+															</button>
+														</div>
 													</div>
 												</div>
 
-												<div class="password-generator create-listener__generator">
-													<label for="listener-password-table">Пароль</label>
-													<div class="password-generator__wrapper">
-														<input
-															id="listener-password-table"
-															type="password"
-															name="password"
-															class="accent-field"
-															placeholder="Пароль"
-														/>
+												<div class="accent-form__buttons">
+													<button type="submit" class="accent-button create-listener__submit-form">Сохранить</button>
 
-														<button class="toggle-password" title="Показать пароль" type="button">
-															<svg
-																class="eye-open"
-																xmlns="http://www.w3.org/2000/svg"
-																width="24"
-																height="24"
-																fill="none"
-																stroke="#000"
-																stroke-width="2"
-																stroke-linecap="round"
-																stroke-linejoin="round"
-																style="display: none"
-															>
-																<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-																<circle cx="12" cy="12" r="3" />
-															</svg>
-															<svg
-																class="eye-closed"
-																xmlns="http://www.w3.org/2000/svg"
-																width="24"
-																height="24"
-																fill="none"
-																stroke="#000"
-																stroke-width="2"
-																stroke-linecap="round"
-																stroke-linejoin="round"
-															>
-																<path d="M17.94 17.94L6.06 6.06M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-															</svg>
-														</button>
-
-														<button class="password-generator__button" title="Сгенерировать пароль" type="button">
-															<svg
-																xmlns="http://www.w3.org/2000/svg"
-																width="24"
-																height="24"
-																viewBox="0 0 24 24"
-																fill="none"
-																stroke="#000"
-																stroke-width="2"
-																stroke-linecap="round"
-																stroke-linejoin="round"
-															>
-																<path
-																	d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"
-																/>
-															</svg>
-														</button>
-													</div>
+													<button class="accent-button create-listener__generate-data" type="button">
+														Сгенерировать данные
+													</button>
 												</div>
 											</div>
+										</form>
 
-											<div class="accent-form__buttons">
-												<button type="submit" class="accent-button create-listener__submit-form">Сохранить</button>
+										<form id="select-listener" class="accent-tabs__content" data-tab="select-listener">
+											<div id="listener-table_add" class="accent-table">
+												<div class="accent-table__wrapper">
+													<table class="accent-table__table">
+														<thead>
+															<tr>
+																<th>Операция</th>
+																<th>ФИО</th>
+																<th>Email</th>
+																<th>Телефон</th>
+															</tr>
+														</thead>
 
-												<button class="accent-button create-listener__generate-data" type="button">
-													Сгенерировать данные
-												</button>
+														<tbody class="accent-table__body">
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-1" name="listener-1" />
+																		<label for="listener-1"></label>
+																	</div>
+																</td>
+																<td>Иванов Иван Иванович</td>
+																<td>ivanov@example.com</td>
+																<td>123-45-67</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+															<tr class="accent-table__row">
+																<td>
+																	<div class="accent-checkbox">
+																		<input type="checkbox" id="listener-2" name="listener-2" />
+																		<label for="listener-2"></label>
+																	</div>
+																</td>
+																<td>Александров Александра Александровна</td>
+																<td>aleksandrova@example.com</td>
+																<td>987-65-43</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+
+												<button type="submit" class="accent-button">Сохранить</button>
 											</div>
-										</div>
-									</form>
-
-									<form id="select-listener" class="accent-tabs__content" data-tab="select-listener">
-										<div id="listener-table_add" class="accent-table">
-											<div class="accent-table__wrapper">
-												<table class="accent-table__table">
-													<thead>
-														<tr>
-															<th>Операция</th>
-															<th>ФИО</th>
-															<th>Email</th>
-															<th>Телефон</th>
-														</tr>
-													</thead>
-
-													<tbody class="accent-table__body">
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-1" name="listener-1" />
-																	<label for="listener-1"></label>
-																</div>
-															</td>
-															<td>Иванов Иван Иванович</td>
-															<td>ivanov@example.com</td>
-															<td>123-45-67</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-														<tr class="accent-table__row">
-															<td>
-																<div class="accent-checkbox">
-																	<input type="checkbox" id="listener-2" name="listener-2" />
-																	<label for="listener-2"></label>
-																</div>
-															</td>
-															<td>Александров Александра Александровна</td>
-															<td>aleksandrova@example.com</td>
-															<td>987-65-43</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-
-											<button type="submit" class="accent-button">Сохранить</button>
-										</div>
-									</form>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -654,19 +656,138 @@
 				</div>
 			</div>
 
-			<div id="company-modal" class="accent-modal">
-				<div class="accent-modal__wrapper accent-background">
-					<button class="accent-modal__close" type="button">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-							<path
-								d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
-							></path>
-						</svg>
-					</button>
+			<div class="accent-modal-overlay">
+				<div id="company-modal" class="accent-modal">
+					<div class="accent-modal__wrapper accent-background">
+						<button class="accent-modal__close" type="button">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+								<path
+									d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+								></path>
+							</svg>
+						</button>
 
-					<h2 class="accent-header">Добавить компанию</h2>
+						<h2 class="accent-header">Добавить компанию</h2>
 
-					<div class="accent-modal__content"></div>
+						<div class="accent-modal__content">
+							<form id="add-company-form" class="create-company accent-form">
+								<div class="accent-form__wrapper">
+									<div class="accent-form__fields">
+										<div class="accent-form__field-wrapper">
+											<label for="companyName">Полное наименование</label>
+											<input
+												id="companyName"
+												type="text"
+												name="companyName"
+												class="accent-field"
+												placeholder="Название компании"
+											/>
+										</div>
+
+										<div class="accent-form__field-wrapper">
+											<label for="company-inn">ИНН компании</label>
+											<input id="company-inn" type="text" name="inn" class="accent-field" placeholder="ИНН" />
+										</div>
+
+										<div class="email-generator create-company__generator">
+											<label for="company-email">Email</label>
+											<div class="email-generator__wrapper">
+												<input id="company-email" type="text" name="email" class="accent-field" placeholder="Email" />
+
+												<button class="email-generator__button" title="Сгенерировать email" type="button">
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														width="24"
+														height="24"
+														viewBox="0 0 24 24"
+														fill="none"
+														stroke="#000"
+														stroke-width="2"
+														stroke-linecap="round"
+														stroke-linejoin="round"
+													>
+														<path
+															d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"
+														/>
+													</svg>
+												</button>
+											</div>
+										</div>
+
+										<div class="password-generator create-company__generator">
+											<label for="company-password">Пароль</label>
+											<div class="password-generator__wrapper">
+												<input
+													id="company-password"
+													type="password"
+													name="password"
+													class="accent-field"
+													placeholder="Пароль"
+												/>
+
+												<button class="toggle-password" title="Показать пароль" type="button">
+													<svg
+														class="eye-open"
+														xmlns="http://www.w3.org/2000/svg"
+														width="24"
+														height="24"
+														fill="none"
+														stroke="#000"
+														stroke-width="2"
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														style="display: none"
+													>
+														<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+														<circle cx="12" cy="12" r="3" />
+													</svg>
+													<svg
+														class="eye-closed"
+														xmlns="http://www.w3.org/2000/svg"
+														width="24"
+														height="24"
+														fill="none"
+														stroke="#000"
+														stroke-width="2"
+														stroke-linecap="round"
+														stroke-linejoin="round"
+													>
+														<path d="M17.94 17.94L6.06 6.06M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+													</svg>
+												</button>
+
+												<button class="password-generator__button" title="Сгенерировать пароль" type="button">
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														width="24"
+														height="24"
+														viewBox="0 0 24 24"
+														fill="none"
+														stroke="#000"
+														stroke-width="2"
+														stroke-linecap="round"
+														stroke-linejoin="round"
+													>
+														<path
+															d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"
+														/>
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="accent-form__buttons">
+										<button type="submit" class="accent-button create-listener__submit-form">Сохранить</button>
+
+										<button class="accent-button create-company__generate-data" type="button">
+											Сгенерировать данные
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 
