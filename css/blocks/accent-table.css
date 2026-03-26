@@ -1,0 +1,76 @@
+.accent-table__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+}
+
+.accent-table__header {
+	font-size: 44px;
+}
+
+.accent-table__table {
+	width: 100%;
+	border-collapse: collapse;
+	background: #fff;
+	box-shadow: var(--bg-shadow);
+	border-radius: 12px;
+	overflow: hidden;
+
+	thead {
+		background: #f8f9fb;
+
+		th {
+			text-align: left;
+			padding: 1rem 1.2rem;
+			font-size: 15px;
+			font-weight: 600;
+			color: #555;
+			border-bottom: 1px solid #eee;
+		}
+	}
+}
+
+.accent-table__body {
+	td {
+		padding: 1rem 1.2rem;
+		font-size: 15px;
+	}
+}
+
+.accent-table__row {
+	transition: background 0.2s ease;
+	cursor: pointer;
+
+	&:hover {
+		background: #fff7f0;
+	}
+
+	&:nth-child(even) {
+		background: #fcfcfc;
+	}
+}
+
+.accent-table__actions {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.accent-table__content {
+	td {
+		padding: 0;
+		background: #fafafa;
+	}
+}
+
+.accent-table__content-inner {
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition:
+		max-height 0.35s ease,
+		opacity 0.35s ease;
+}
+
+.accent-table__content.accent-table__content--active .accent-table__content-inner {
+	opacity: 1;
+}

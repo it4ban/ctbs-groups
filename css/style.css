@@ -1,15 +1,20 @@
-@import "reset.css";
-@import "vars.css";
-@import "fonts.css";
-@import "general.css";
+@import 'reset.css';
+@import 'vars.css';
+@import 'fonts.css';
+@import 'general.css';
 
 /*BLOCKS*/
-@import "blocks/group-menu.css";
-@import "blocks/accent-form.css";
-@import "blocks/error-container.css";
-@import "blocks/generators.css";
+@import 'blocks/group-menu.css';
+@import 'blocks/accent-form.css';
+@import 'blocks/error-container.css';
+@import 'blocks/generators.css';
+
+@import 'blocks/accent-table.css';
+@import 'blocks/pagination.css';
+@import 'blocks/accent-filter.css';
+@import 'blocks/accent-tabs.css';
 
 /*GROUP-CREATE*/
-@import "blocks/group-create.css";
+@import 'blocks/group-create.css';
 /*COMPANY-CREATE*/
-@import "blocks/company-create.css";
+@import 'blocks/company-create.css';

@@ -1,0 +1,53 @@
+.accent-tabs__button {
+	background: #979797;
+	&.accent-tabs__button--active {
+		background: #ff7e0d;
+	}
+}
+
+.accent-tabs__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.accent-tabs__content {
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	display: none;
+	transition:
+		max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+		opacity 0.25s ease;
+}
+
+.accent-tabs__content--active {
+	display: block;
+	opacity: 1;
+}
+
+.accent-tabs__content .accent-filter {
+	background: transparent;
+	box-shadow: none;
+}
+
+.accent-tabs__content .accent-filter__wrapper {
+	padding: 0;
+}
+
+.accent-tabs__content .accent-table__wrapper {
+	gap: 2rem;
+}
+
+.accent-tabs__content .accent-table__table {
+	box-shadow: none;
+}
+
+.accent-tabs__content .pagination {
+	background: transparent;
+	box-shadow: none;
+}
+
+.accent-tabs__content .pagination__wrapper {
+	padding: 0;
+}

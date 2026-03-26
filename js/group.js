@@ -6,7 +6,7 @@ import {
 	modalSettings,
 	selectOptions,
 	timeMasksOptions,
-} from './configs/group';
+} from './configs/group/index.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	const groupForm = new GroupForm(

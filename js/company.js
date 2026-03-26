@@ -1,9 +1,9 @@
-import { Table } from './modules/Table.js';
+import { CompanyTable } from './classes/CompanyTable.js';
 
 import { ListenerModal } from './classes/ListenerModal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-	new Table('#company-table');
+	new CompanyTable('#company-table');
 
 	new ListenerModal('#listener-modal');
 });

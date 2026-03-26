@@ -5,8 +5,6 @@ export class Table {
 
 		this.rows = this.selector.querySelectorAll('.accent-table__row');
 		this.contents = this.selector.querySelectorAll('.accent-table__content');
-
-		this.#initEvents();
 	}
 
 	#getContentByRow(rowId) {
@@ -16,38 +14,56 @@ export class Table {
 	showContent(content) {
 		const inner = content.querySelector('.accent-table__content-inner');
 
+		inner.addEventListener(
+			'transitionend',
+			() => {
+				if (content.classList.contains('accent-table__content--active')) {
+					inner.style.maxHeight = 'none';
+				}
+			},
+			{ once: true },
+		);
+
 		content.classList.add('accent-table__content--active');
+
+		const height = inner.scrollHeight;
+
+		const duration = Math.min(Math.max(height / 600, 0.25), 0.6);
+
+		inner.style.transition = `max-height ${duration}s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease`;
 
 		inner.style.maxHeight = '0px';
 
 		requestAnimationFrame(() => {
-			const height = inner.scrollHeight;
-			const duration = height / 900;
-
-			inner.style.transition = `max-height ${duration}s ease`;
 			inner.style.maxHeight = height + 'px';
+			inner.style.opacity = 1;
 		});
 	}
 
 	hideContent(content) {
 		const inner = content.querySelector('.accent-table__content-inner');
 
-		inner.style.maxHeight = inner.scrollHeight + 'px';
+		const height = inner.scrollHeight;
+
+		const duration = Math.min(Math.max(height / 600, 0.25), 0.6);
+
+		inner.style.transition = `max-height ${duration}s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease`;
+
+		inner.style.maxHeight = height + 'px';
 
 		requestAnimationFrame(() => {
 			inner.style.maxHeight = '0px';
+			inner.style.opacity = 0;
 		});
 
 		content.classList.remove('accent-table__content--active');
 	}
 
-	#handleRowClick(e, row) {
+	handleRowClick(e, row) {
 		e.preventDefault();
 		e.stopPropagation();
 
 		if (e.target.closest('button')) return;
-
-		console.log(row);
 
 		const rowId = row.dataset.row;
 		const content = this.#getContentByRow(rowId);
@@ -60,11 +76,5 @@ export class Table {
 		if (!isOpen) {
 			this.showContent(content);
 		}
-	}
-
-	#initEvents() {
-		this.rows.forEach((row) => {
-			row.addEventListener('click', (e) => this.#handleRowClick(e, row));
-		});
 	}
 }
