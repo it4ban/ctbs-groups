@@ -6,6 +6,7 @@
 /*BLOCKS*/
 @import 'blocks/group-menu.css';
 @import 'blocks/accent-form.css';
+@import 'blocks/accent.modal.css';
 @import 'blocks/error-container.css';
 @import 'blocks/generators.css';
 

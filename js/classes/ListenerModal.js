@@ -6,10 +6,10 @@ import { ListenerCreateForm } from './ListenerCreateForm.js';
 
 export class ListenerModal extends Modal {
 	#buttons = null;
-	#companyId = null;
 	#createFormInstance = null;
 	#selectFormInstance = null;
 	#tabsInstance = null;
+	#companyId = null;
 
 	constructor(selector) {
 		super(selector);
@@ -20,9 +20,20 @@ export class ListenerModal extends Modal {
 		this.#initEvents();
 	}
 
-	#initForms(companyId) {
-		this.#createFormInstance = new ListenerCreateForm('#create-listener', companyId);
-		this.#selectFormInstance = new ListenerSelectForm('#select-listener', companyId);
+	open() {
+		this.#initForms();
+		this.#initTabs();
+
+		super.open();
+	}
+
+	#initForms() {
+		this.#createFormInstance = new ListenerCreateForm('#create-listener', this);
+		this.#selectFormInstance = new ListenerSelectForm('#select-listener', this);
+	}
+
+	getCompanyId() {
+		return this.#companyId;
 	}
 
 	#initTabs() {
@@ -32,9 +43,7 @@ export class ListenerModal extends Modal {
 	#initEvents() {
 		this.#buttons.forEach((button) => {
 			button.addEventListener('click', () => {
-				const companyId = button.dataset.id;
-				this.#initForms(companyId);
-				this.#initTabs();
+				this.#companyId = button.dataset.id;
 				this.open();
 			});
 		});
