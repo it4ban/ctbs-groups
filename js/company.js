@@ -6,6 +6,6 @@ import { ListenerModal } from './classes/ListenerModal.js';
 document.addEventListener('DOMContentLoaded', () => {
 	new CompanyTable('#company-table');
 
-	new ListenerModal('#listener-modal');
+	new ListenerModal('#listener-modal-id-0');
 	new CompanyModal('#company-modal');
 });

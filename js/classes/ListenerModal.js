@@ -5,7 +5,7 @@ import { ListenerSelectForm } from './ListenerSelectForm.js';
 import { ListenerCreateForm } from './ListenerCreateForm.js';
 
 export class ListenerModal extends Modal {
-	#buttons = null;
+	#button = null;
 	#createFormInstance = null;
 	#selectFormInstance = null;
 	#tabsInstance = null;
@@ -16,7 +16,7 @@ export class ListenerModal extends Modal {
 
 		this.#companyId = null;
 
-		this.#buttons = document.querySelectorAll('.add-listener');
+		this.#button = this.modal.closest('.accent-modal-overlay').previousElementSibling;
 		this.#initEvents();
 	}
 
@@ -28,24 +28,17 @@ export class ListenerModal extends Modal {
 	}
 
 	#initForms() {
-		this.#createFormInstance = new ListenerCreateForm('#create-listener', this);
-		this.#selectFormInstance = new ListenerSelectForm('#select-listener', this);
-	}
-
-	getCompanyId() {
-		return this.#companyId;
+		this.#createFormInstance = new ListenerCreateForm('#create-listener-id-0', this);
+		this.#selectFormInstance = new ListenerSelectForm('#select-listener-id-0', this);
 	}
 
 	#initTabs() {
-		this.#tabsInstance = new Tabs('#listener-tabs');
+		this.#tabsInstance = new Tabs('#listener-tabs-id-0');
 	}
 
 	#initEvents() {
-		this.#buttons.forEach((button) => {
-			button.addEventListener('click', () => {
-				this.#companyId = button.dataset.id;
-				this.open();
-			});
+		this.#button.addEventListener('click', () => {
+			this.open();
 		});
 	}
 }
